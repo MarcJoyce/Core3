@@ -79,6 +79,8 @@ function CorelliaStrongholdScreenPlay:spawnImperials(pBuilding)
 	BuildingObject(pBuilding):spawnChildCreature("stormtrooper_squad_leader", 300, 4675.99, 25, -5809.56, 216, 0)
 	BuildingObject(pBuilding):spawnChildCreature("stormtrooper_squad_leader", 300, 4678.77, 25, -5757.9, 226, 0)
 
+	BuildingObject(pBuilding):spawnChildCreature("elite_novatrooper_commander", 600, 4666, 25, -5783, 226, 0)
+
 	BuildingObject(pBuilding):spawnChildCreature("imperial_first_lieutenant", 400, -0.197, 0.125, -1.714, 0, 2715881)
 	BuildingObject(pBuilding):spawnChildCreature("imperial_first_lieutenant", 400, 0.506, 0.125, -1.081, 0, 2716039)
 	BuildingObject(pBuilding):spawnChildCreature("stormtrooper_medic", 400, 0.673, 0.125, -0.651, 0, 2716032)
@@ -136,6 +138,8 @@ function CorelliaStrongholdScreenPlay:spawnRebels(pBuilding)
 	BuildingObject(pBuilding):spawnChildCreature("rebel_trooper", 300, 4691.92, 25, -5763.05, 240, 0)
 	BuildingObject(pBuilding):spawnChildCreature("rebel_staff_sergeant", 300, 4670.99, 25, -5804.56, 216, 0)
 	BuildingObject(pBuilding):spawnChildCreature("rebel_staff_sergeant", 300, 4673.77, 25, -5752.9, 226, 0)
+
+	BuildingObject(pBuilding):spawnChildCreature("rebel_rear_admiral", 600, 4666, 25, -5783, 226, 0)
 
 	BuildingObject(pBuilding):spawnChildCreature("rebel_first_lieutenant", 400, -0.694, 0.125, -1.217, 0, 2715881)
 	BuildingObject(pBuilding):spawnChildCreature("rebel_first_lieutenant", 400, 0.903, 0.125, -1.584, 0, 2716039)

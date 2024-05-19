@@ -148,6 +148,8 @@ function RebelHideoutScreenPlay:spawnMobiles()
 	spawnMobile("corellia", "rebel_trooper", 300, -6517.160, 398.000, 5963.470, 12.022, 0)
 	spawnMobile("corellia", "rebel_trooper", 300, -6516.800, 398.000, 5965.590, -143.274, 0)
 
+	spawnMobile("corellia", "rebel_rear_admiral", 300, -6516.800, 398.000, 5965.590, -143.274, 0)
+
 	-- South Building
 	spawnMobile("corellia", "rebel_trooper", 300, -6500.960, 398.000, 5951.110, 2.598, 0)
 	spawnMobile("corellia", "rebel_trooper", 300, -6498.560, 398.000, 5951.120, 66.456, 0)

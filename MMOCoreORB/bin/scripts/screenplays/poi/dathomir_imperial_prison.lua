@@ -184,6 +184,8 @@ function ImperialPrisonScreenPlay:spawnMobiles()
 	spawnMobile("dathomir", "stormtrooper_medic", 300, -6452.1, 119.9, 964.0, -128, 0)
 	spawnMobile("dathomir", "stormtrooper_squad_leader", 300, -6457.7, 119.9, 960.1, -128, 0)
 
+	spawnMobile("dathomir", "elite_novatrooper_commander", 300, -6457.7, 119.9, 960.1, -128, 0)
+
 	spawnMobile("dathomir", "stormtrooper_commando", 300, -6304.5, 119.9, 885.6, 0, 0)
 	spawnMobile("dathomir", "stormtrooper_commando", 300, -6311.2, 119.9, 885.8, 0, 0)
 

@@ -58,6 +58,8 @@ function WeaponFacilityScreenPlay:spawnImperials(pBuilding)
 	BuildingObject(pBuilding):spawnChildCreature("stormtrooper", 300, -6495.8, 40.0, -3272.4, 25, 0)
 	BuildingObject(pBuilding):spawnChildCreature("dark_trooper", 300, -6504.4, 40.0, -3262.2, 44, 0)
 
+	BuildingObject(pBuilding):spawnChildCreature("elite_novatrooper_commander", 600, -6504.4, 40.0, -3262.2, 0)
+
 	--Cell [6335640]
 	BuildingObject(pBuilding):spawnChildCreature("stormtrooper", 300, -4.2, 0.3, 3.8, 131, 6335640)
 	BuildingObject(pBuilding):spawnChildCreature("dark_trooper", 300, 0.5, 0.3, 2.0, -41, 6335640)
@@ -244,6 +246,8 @@ function WeaponFacilityScreenPlay:spawnRebels(pBuilding)
 	BuildingObject(pBuilding):spawnChildCreature("rebel_major", 300, -6511.8, 40.0, -3277.2, -95, 0)
 	BuildingObject(pBuilding):spawnChildCreature("specforce_marine", 300, -6494.0, 40.0, -3271.8, 49, 0)
 	BuildingObject(pBuilding):spawnChildCreature("senior_specforce_infiltrator", 300, -6502.8, 40.0, -3260.9, -20, 0)
+
+	BuildingObject(pBuilding):spawnChildCreature("rebel_rear_admiral", 600, -6502.8, 40.0, -3260.9, 226, 0)
 
 	--Cell [6335640]
 	BuildingObject(pBuilding):spawnChildCreature("specforce_marine", 300, -4.1, 0.3, 0.7, 169, 6335640)
