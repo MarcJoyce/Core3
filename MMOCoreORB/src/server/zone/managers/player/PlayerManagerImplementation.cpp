@@ -1852,7 +1852,7 @@ void PlayerManagerImplementation::sendPlayerToCloner(CreatureObject* player, uin
 	// Jedi experience loss.
 	if (ghost->getJediState() >= 2) {
 		int jediXpCap = ghost->getXpCap("jedi_general");
-		int xpLoss = (int)(jediXpCap * -0.05);
+		int xpLoss = (int)(jediXpCap * -0.0025);
 		int curExp = ghost->getExperience("jedi_general");
 
 		int negXpCap = -10000000; // Cap on negative jedi experience
@@ -2119,7 +2119,7 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 				xpAmount *= (float) damage / totalDamage;
 
 				//Cap xp based on level
-				xpAmount = Math::min(xpAmount, playerLevel * 300.f);
+				xpAmount = Math::min(xpAmount, playerLevel * 400.f);
 
 				//Apply group bonus if in group
 				if (group != nullptr)
@@ -2140,6 +2140,11 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 
 				//Award individual expType
 				awardExperience(attackerCreo, xpType, xpAmount);
+
+				if (xpType == "jedi_general" && attackerCreo->hasSkill("force_title_jedi_rank_03")) {
+					float frsXpAmount = xpAmount * 0.05f;
+					awardExperience(attackerCreo, "force_rank_xp", frsXpAmount);
+				}
 			}
 
 			awardExperience(attackerCreo, "combat_general", combatXp, true, 0.1f);
