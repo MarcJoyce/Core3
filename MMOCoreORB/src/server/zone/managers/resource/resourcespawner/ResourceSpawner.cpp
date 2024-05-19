@@ -618,6 +618,10 @@ int ResourceSpawner::randomizeValue(int min, int max) {
 		}
 	}
 
+	if (randomStat < ((max - min) + (min / 2))) {
+		randomStat = ((max - min) + (min / 2));
+	}
+
 	return randomStat;
 }
 
@@ -911,7 +915,7 @@ void ResourceSpawner::sendSample(CreatureObject* player, const String& resname,
 	//Adjust cost based upon player's quickness
 	int actionCost = 124 - (int)(player->getHAM(CreatureAttribute::QUICKNESS)/12.5f);
 
-	player->inflictDamage(player, CreatureAttribute::ACTION, actionCost, false, true);
+	player->inflictDamage(player, CreatureAttribute::ACTION, actionCost / 2, false, true);
 
 	PlayClientEffectLoc* effect = new PlayClientEffectLoc(sampleAnimation,
 			player->getZone()->getZoneName(), player->getPositionX(),
@@ -958,80 +962,80 @@ void ResourceSpawner::sendSampleResults(TransactionLog& trx, CreatureObject* pla
 	String zoneName = zne->getZoneName();
 
 	// If density is too low, we can't obtain a sample
-	if (density < .10f) {
-		StringIdChatParameter message("survey", "efficiency_too_low");
-		message.setTO(resname);
-		player->sendSystemMessage(message);
-		player->setPosture(CreaturePosture::UPRIGHT, true);
-		trx.abort() << message.toString();
-		return;
-	}
+	// if (density < .10f) {
+	// 	StringIdChatParameter message("survey", "efficiency_too_low");
+	// 	message.setTO(resname);
+	// 	player->sendSystemMessage(message);
+	// 	player->setPosture(CreaturePosture::UPRIGHT, true);
+	// 	trx.abort() << message.toString();
+	// 	return;
+	// }
 
 	// Lower skill levels mean you can't sample lower concetrations
 	int surveySkill = player->getSkillMod("surveying");
 
-	if ((density * 100) < (32 - ((surveySkill / 20) * 6)) || density < .10) {
-		StringIdChatParameter message("survey", "density_below_threshold");
-		message.setTO(resname);
-		player->sendSystemMessage(message);
-		player->setPosture(CreaturePosture::UPRIGHT, true);
-		trx.abort() << message.toString();
-		return;
-	}
+	// if ((density * 100) < (32 - ((surveySkill / 20) * 6)) || density < .10) {
+	// 	StringIdChatParameter message("survey", "density_below_threshold");
+	// 	message.setTO(resname);
+	// 	player->sendSystemMessage(message);
+	// 	player->setPosture(CreaturePosture::UPRIGHT, true);
+	// 	trx.abort() << message.toString();
+	// 	return;
+	// }
 
 	Coordinate* richSampleLocation = session->getRichSampleLocation();
 
 	float sampleRate = (surveySkill * density) + System::random(100) + player->getSkillMod("private_spec_samplerate");
 
 	// Was the sample successful or not
-	if (!session->tryGamble() && richSampleLocation == nullptr && sampleRate < 40) {
-		StringIdChatParameter message("survey", "sample_failed");
-		message.setTO(resname);
-		player->sendSystemMessage(message);
-		trx.abort() << message.toString();
-		return;
-	}
+	// if (!session->tryGamble() && richSampleLocation == nullptr && sampleRate < 40) {
+	// 	StringIdChatParameter message("survey", "sample_failed");
+	// 	message.setTO(resname);
+	// 	player->sendSystemMessage(message);
+	// 	trx.abort() << message.toString();
+	// 	return;
+	// }
 
 	int maxUnitsExtracted = (int) (density * (25 + System::random(3)));
 
 	float cityMultiplier = 1.f + player->getSkillMod("private_spec_samplesize") / 100.f;
 
-	int unitsExtracted = maxUnitsExtracted * (float(surveySkill) / 100.0f) * samplingMultiplier * cityMultiplier;
+	int unitsExtracted = maxUnitsExtracted * (float(surveySkill) / 100.0f) * samplingMultiplier * cityMultiplier * 10 + 1;
 	int xpcap = 40;
 
-	if (session->tryGamble()) {
-		if (System::random(2) == 1) {
-			player->sendSystemMessage("@survey:gamble_success");
-			unitsExtracted *= 5;
-		} else {
-			player->sendSystemMessage("@survey:gamble_fail");
-		}
-		session->clearGamble();
-		xpcap = 50;
-	}
+	// if (session->tryGamble()) {
+	// 	if (System::random(2) == 1) {
+	// 		player->sendSystemMessage("@survey:gamble_success");
+	// 		unitsExtracted *= 5;
+	// 	} else {
+	// 		player->sendSystemMessage("@survey:gamble_fail");
+	// 	}
+	// 	session->clearGamble();
+	// 	xpcap = 50;
+	// }
 
-	if (richSampleLocation != nullptr && richSampleLocation->getPosition() != Vector3(0, 0, 0)) {
-		if (player->getDistanceTo(richSampleLocation) < 10) {
-			player->sendSystemMessage("@survey:node_recovery");
-			unitsExtracted *= 5;
+	// if (richSampleLocation != nullptr && richSampleLocation->getPosition() != Vector3(0, 0, 0)) {
+	// 	if (player->getDistanceTo(richSampleLocation) < 10) {
+	// 		player->sendSystemMessage("@survey:node_recovery");
+	// 		unitsExtracted *= 5;
 
-		} else {
-			player->sendSystemMessage("@survey:node_not_close");
-		}
+	// 	} else {
+	// 		player->sendSystemMessage("@survey:node_not_close");
+	// 	}
 
-		session->clearRichSampleLocation();
-		xpcap = 50;
-	}
+	// 	session->clearRichSampleLocation();
+	// 	xpcap = 50;
+	// }
 
-	if (unitsExtracted < 2) {
-		// Send message to player about trace amounts
-		StringIdChatParameter message("survey", "trace_amount");
-		message.setTO(resname);
-		message.setDI(unitsExtracted);
-		player->sendSystemMessage(message);
-		trx.abort() << message.toString();
-		return;
-	}
+	// if (unitsExtracted < 2) {
+	// 	// Send message to player about trace amounts
+	// 	StringIdChatParameter message("survey", "trace_amount");
+	// 	message.setTO(resname);
+	// 	message.setDI(unitsExtracted);
+	// 	player->sendSystemMessage(message);
+	// 	trx.abort() << message.toString();
+	// 	return;
+	// }
 
 	// Send message to player about unit extraction
 	StringIdChatParameter message("survey", "sample_located");
