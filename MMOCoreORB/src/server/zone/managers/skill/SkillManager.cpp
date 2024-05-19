@@ -687,7 +687,7 @@ void SkillManager::updateXpLimits(PlayerObject* ghost) {
 
 	for (int i = 0; i < experienceList->size(); ++i) {
 		String xpType = experienceList->getKeyAt(i);
-		if (experienceList->get(xpType) > xpTypeCapList->get(xpType)) {
+		if (experienceList->get(xpType) > xpTypeCapList->get(xpType) * 20) {
 			TransactionLog trx(TrxCode::EXPERIENCE, player);
 			ghost->addExperience(trx, xpType, xpTypeCapList->get(xpType) - experienceList->get(xpType), true);
 		}

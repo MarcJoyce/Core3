@@ -686,10 +686,10 @@ int PlayerObjectImplementation::addExperience(TransactionLog& trx, const String&
 	int xpCap = -1;
 
 	if (xpTypeCapList.contains(xpType))
-		xpCap = xpTypeCapList.get(xpType);
+		xpCap = xpTypeCapList.get(xpType) * 20;
 
 	if (xpCap < 0)
-		xpCap = 2000;
+		xpCap = 2000 * 20;
 
 	if (xp > xpCap) {
 		valueToAdd = xpCap - (xp - valueToAdd);
