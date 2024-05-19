@@ -529,12 +529,25 @@ void SlicingSessionImplementation::handleWeaponSlice() {
 		break;
 	default:
 		return;
+	}
 
+	if (sliceSkill == 5) {
+		int roll = System::random(100);
+		if (roll > 99) {
+			min += 5;
+			max += 5;
+		}
 	}
 
 	uint8 percentage = System::random(max - min) + min;
 
-	switch(System::random(1)) {
+	int sliceType = System::random(1);
+
+	if (sliceSkill == 5) {
+		sliceType = 0;
+	}
+
+	switch(sliceType) {
 	case 0:
 		handleSliceDamage(percentage);
 		break;
@@ -623,22 +636,36 @@ void SlicingSessionImplementation::handleArmorSlice() {
 	uint8 min = 0;
 	uint8 max = 0;
 
-	switch (sliceSkill) {
+		switch (sliceSkill) {
 	case 5:
-		min += (sliceType == 0) ? 6 : 5;
+		min += 20;
 		max += 5;
 	case 4:
-		min += (sliceType == 0) ? 0 : 10;
-		max += 10;
-	case 3:
 		min += 5;
-		max += (sliceType == 0) ? 20 : 30;
+		max += 5;
+	case 3:
+	case 2:
+		min += 10;
+		max += 25;
 		break;
 	default:
 		return;
+
+	}
+
+	if (sliceSkill == 5) {
+		int roll = System::random(100);
+		if (roll > 99) {
+			min += 5;
+			max += 5;
+		}
 	}
 
 	uint8 percent = System::random(max - min) + min;
+
+	if (sliceSkill == 5) {
+		sliceType = 0;
+	}
 
 	switch (sliceType) {
 	case 0:
