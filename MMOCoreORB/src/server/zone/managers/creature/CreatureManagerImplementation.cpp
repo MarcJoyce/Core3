@@ -115,7 +115,7 @@ SceneObject* CreatureManagerImplementation::spawnLair(unsigned int lairTemplate,
  	building->setFaction(lairTmpl->getFaction());
  	building->setPvpStatusBitmask(ObjectFlag::ATTACKABLE);
  	building->setOptionsBitmask(0, false);
- 	building->setMaxCondition(difficultyLevel * (900 + System::random(200)));
+ 	building->setMaxCondition(difficultyLevel * (900 + System::random(200)) / 2);
  	building->setConditionDamage(0, false);
  	building->initializePosition(x, z, y);
  	building->setDespawnOnNoPlayersInRange(true);
@@ -769,6 +769,7 @@ void CreatureManagerImplementation::droidHarvest(Creature* creature, CreatureObj
 	}
 	int ownerSkill = owner->getSkillMod("creature_harvesting");
 	int quantityExtracted = int(quantity * float(ownerSkill / 100.0f));
+	quantityExtracted *= 10;
 	// add in droid bonus
 	quantityExtracted = Math::max(quantityExtracted, 3);
 	ManagedReference<ResourceSpawn*> resourceSpawn = resourceManager->getCurrentSpawn(restype, droidZone->getZoneName());
@@ -783,16 +784,16 @@ void CreatureManagerImplementation::droidHarvest(Creature* creature, CreatureObj
 	String creatureHealth = "";
 
 	if (density > 0.75f) {
-		quantityExtracted = int(quantityExtracted * 1.25f);
+		quantityExtracted = int(quantityExtracted * 1.5f);
 		creatureHealth = "creature_quality_fat";
 	} else if (density > 0.50f) {
-		quantityExtracted = int(quantityExtracted * 1.00f);
+		quantityExtracted = int(quantityExtracted * 1.25f);
 		creatureHealth = "creature_quality_medium";
 	} else if (density > 0.25f) {
-		quantityExtracted = int(quantityExtracted * 0.75f);
+		quantityExtracted = int(quantityExtracted * 1.00f);
 		creatureHealth = "creature_quality_scrawny";
 	} else {
-		quantityExtracted = int(quantityExtracted * 0.50f);
+		quantityExtracted = int(quantityExtracted * 0.75f);
 		creatureHealth = "creature_quality_skinny";
 	}
 
@@ -858,7 +859,7 @@ void CreatureManagerImplementation::droidHarvest(Creature* creature, CreatureObj
 		bonusMessage.setTT(creature->getObjectNameStringIdFile(), creature->getObjectNameStringIdName());
 
 		ChatSystemMessage* sysMessage = new ChatSystemMessage(bonusMessage);
-		owner->getGroup()->broadcastMessage(owner, sysMessage, false);
+		// owner->getGroup()->broadcastMessage(owner, sysMessage, false);
 	}
 
 	ManagedReference<PlayerManager*> playerManager = zoneServer->getPlayerManager();
@@ -940,6 +941,7 @@ void CreatureManagerImplementation::harvest(Creature* creature, CreatureObject* 
 	}
 	int quantityExtracted = int(quantity * float(player->getSkillMod("creature_harvesting") / 100.0f));
 	quantityExtracted = Math::max(quantityExtracted, 3);
+	quantityExtracted *= 10;
 
 	ManagedReference<ResourceSpawn*> resourceSpawn = resourceManager->getCurrentSpawn(restype, player->getZone()->getZoneName());
 
@@ -953,16 +955,16 @@ void CreatureManagerImplementation::harvest(Creature* creature, CreatureObject* 
 	String creatureHealth = "";
 
 	if (density > 0.75f) {
-		quantityExtracted = int(quantityExtracted * 1.25f);
+		quantityExtracted = int(quantityExtracted * 1.5f);
 		creatureHealth = "creature_quality_fat";
 	} else if (density > 0.50f) {
-		quantityExtracted = int(quantityExtracted * 1.00f);
+		quantityExtracted = int(quantityExtracted * 1.25f);
 		creatureHealth = "creature_quality_medium";
 	} else if (density > 0.25f) {
-		quantityExtracted = int(quantityExtracted * 0.75f);
+		quantityExtracted = int(quantityExtracted * 1.00f);
 		creatureHealth = "creature_quality_scrawny";
 	} else {
-		quantityExtracted = int(quantityExtracted * 0.50f);
+		quantityExtracted = int(quantityExtracted * 0.75f);
 		creatureHealth = "creature_quality_skinny";
 	}
 
@@ -1008,7 +1010,7 @@ void CreatureManagerImplementation::harvest(Creature* creature, CreatureObject* 
 		bonusMessage.setTT(creature->getObjectNameStringIdFile(), creature->getObjectNameStringIdName());
 
 		ChatSystemMessage* sysMessage = new ChatSystemMessage(bonusMessage);
-		player->getGroup()->broadcastMessage(player, sysMessage, false);
+		// player->getGroup()->broadcastMessage(player, sysMessage, false);
 	}
 
 	ManagedReference<PlayerManager*> playerManager = zoneServer->getPlayerManager();
