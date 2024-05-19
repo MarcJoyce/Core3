@@ -19,28 +19,22 @@ void AttachmentImplementation::initializeTransientMembers() {
 
 }
 
-void AttachmentImplementation::updateCraftingValues(CraftingValues* values, bool firstUpdate) {
+void AttachmentImplementation::updateCraftingValues(CraftingValues* values, bool firstUpdate, const String& lootTemplateName) {
 	int level = values->getMaxValue("creatureLevel");
 	int roll = System::random(100);
 	int modCount = 1;
 
-	if(roll > 99)
-		modCount += 2;
-
-	if(roll < 5)
-		modCount += 1;
-
 	for(int i = 0; i < modCount; ++i) {
-		//Mods can't be lower than -1 or greater than 25
-		int max = (int) Math::max(-1.f, Math::min(25.f, (float) round(0.1f * level + 3)));
-		int min = (int) Math::max(-1.f, Math::min(25.f, (float) round(0.075f * level - 1)));
+		//Mods can't be lower than 0 or greater than 25
+		int max = (int) Math::max(0.f, Math::min(25.f, (float) round(0.1f * level + 3)));
+		int min = (int) Math::max(0.f, Math::min(25.f, (float) round(0.075f * level - 1)));
 
 		int mod = System::random(max - min) + min;
 
 		if(mod == 0)
 			mod = 1;
 
-		String modName = server->getZoneServer()->getLootManager()->getRandomLootableMod(gameObjectType);
+		String modName = server->getZoneServer()->getLootManager()->getRandomLootableMod(gameObjectType, lootTemplateName);
 
 		skillModMap.put(modName, mod);
 	}

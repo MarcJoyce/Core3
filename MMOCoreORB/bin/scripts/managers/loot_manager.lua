@@ -68,6 +68,17 @@ randomDotUses = {250, 9999}
 -- Modifier applied to min/max junk values found in loot item lua
 junkValueModifier = 5;
 
+lootableJediStatMods = {
+	"jedi_saber_assembly",
+	"jedi_saber_experimentation",
+	"jedi_state_defense",
+	"jedi_force_power_regen",
+	"jedi_force_power_max",
+	"onehandlightsaber_accuracy",
+	"twohandlightsaber_accuracy",
+	"polearmlightsaber_accuracy"
+}
+
 lootableArmorAttachmentStatMods = {
 	"aim",
 	"alert",

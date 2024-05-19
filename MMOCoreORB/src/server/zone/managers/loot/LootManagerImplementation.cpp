@@ -48,6 +48,7 @@ void LootManagerImplementation::initialize() {
 	info("Loaded " + String::valueOf(lootableHeavyWeaponMods.size()) + " lootable heavy weapon stat mods.");
 	info("Loaded " + String::valueOf(lootGroupMap->countLootItemTemplates()) + " loot items.");
 	info("Loaded " + String::valueOf(lootGroupMap->countLootGroupTemplates()) + " loot groups.");
+	info("Loaded " + String::valueOf(lootableJediMods.size()) + " lootable jedi stat mods.");
 
 	info("Initialized.", true);
 }
@@ -165,6 +166,9 @@ bool LootManagerImplementation::loadConfigData() {
 
 	modsTable = lua->getGlobalObject("lootableHeavyWeaponStatMods");
 	loadLootableMods( &modsTable, &lootableHeavyWeaponMods );
+
+	modsTable = lua->getGlobalObject("lootableJediStatMods");
+	loadLootableMods( &modsTable, &lootableJediMods );
 
 	LuaObject luaObject = lua->getGlobalObject("jediCrystalStats");
 	LuaObject crystalTable = luaObject.getObjectField("lightsaber_module_force_crystal");
@@ -364,9 +368,10 @@ TangibleObject* LootManagerImplementation::createLootObject(TransactionLog& trx,
 	trx.addState("lootAdjustment", adjustment);
 
 	if (System::random(legendaryChance) >= legendaryChance - adjustment) {
-		UnicodeString newName = prototype->getDisplayedName() + " (Legendary)";
-		prototype->setCustomObjectName(newName, false);
-
+		if (!prototype->isAttachment()) {
+			UnicodeString newName = prototype->getDisplayedName() + " (Legendary)";
+			prototype->setCustomObjectName(newName, false);
+		}
 		excMod = legendaryModifier;
 
 		prototype->addMagicBit(false);
@@ -374,8 +379,10 @@ TangibleObject* LootManagerImplementation::createLootObject(TransactionLog& trx,
 		legendaryLooted.increment();
 		trx.addState("lootIsLegendary", true);
 	} else if (System::random(exceptionalChance) >= exceptionalChance - adjustment) {
-		UnicodeString newName = prototype->getDisplayedName() + " (Exceptional)";
-		prototype->setCustomObjectName(newName, false);
+		if (!prototype->isAttachment()) {
+			UnicodeString newName = prototype->getDisplayedName() + " (Exceptional)";
+			prototype->setCustomObjectName(newName, false);
+		};
 
 		excMod = exceptionalModifier;
 
@@ -424,6 +431,47 @@ TangibleObject* LootManagerImplementation::createLootObject(TransactionLog& trx,
 	//add some condition damage where appropriate
 	if (!maxCondition)
 		addConditionDamage(prototype);
+
+	CraftingValues* craftingValues = new CraftingValues(templateObject->getAttributesMapCopy());
+
+	craftingValues->addExperimentalAttribute("creatureLevel", "creatureLevel", level, level, 0, false, AttributesMap::LINEARCOMBINE);
+	craftingValues->setHidden("creatureLevel");
+
+	if (prototype != nullptr && prototype->isAttachment()) {
+		Attachment* attachment = cast<Attachment*>(prototype.get());
+
+		if (attachment == nullptr)
+			return nullptr;
+
+		attachment->updateCraftingValues(craftingValues, true, templateObject->getTemplateName());
+
+		delete craftingValues;
+
+		HashTable<String, int>* mods = attachment->getSkillMods();
+		HashTableIterator<String, int> iterator = mods->iterator();
+		StringId attachmentName;
+		String key = "";
+		int currentValue = -26;
+		int highest = -26;
+		String attachmentType = "[AA] ";
+		String attachmentCustomName = "";
+
+		if(attachment->isClothingAttachment()){
+			attachmentType = "[CA] ";
+		}
+
+		for(int i = 0; i < mods->size(); ++i) {
+			iterator.getNextKeyAndValue(key, currentValue);
+			if (currentValue > highest){
+				highest = currentValue;
+				attachmentName.setStringId("stat_n", key);
+				prototype->setObjectName(attachmentName, false);
+				attachmentCustomName = attachmentType + prototype->getDisplayedName() + " " + String::valueOf(currentValue);
+			}
+		}
+		prototype->setCustomObjectName(attachmentCustomName, false);	
+
+	}
 
 	trx.addState("lootConditionDmg", prototype->getConditionDamage());
 	trx.addState("lootConditionMax", prototype->getMaxCondition());
@@ -557,7 +605,7 @@ void LootManagerImplementation::setSkillMods(TangibleObject* object, const LootI
 			if(mod == 0)
 				mod = 1;
 
-			String modName = getRandomLootableMod( object->getGameObjectType() );
+			String modName = getRandomLootableMod(object->getGameObjectType(), templateObject->getTemplateName());
 			if( !modName.isEmpty() )
 				additionalMods.put(modName, mod);
 		}
@@ -582,13 +630,16 @@ void LootManagerImplementation::setSkillMods(TangibleObject* object, const LootI
 		object->addMagicBit(false);
 }
 
-String LootManagerImplementation::getRandomLootableMod( unsigned int sceneObjectType ) {
+String LootManagerImplementation::getRandomLootableMod( unsigned int sceneObjectType, const String& lootTemplateName ) {
 	if( sceneObjectType == SceneObjectType::ARMORATTACHMENT ){
 		return lootableArmorAttachmentMods.get(System::random(lootableArmorAttachmentMods.size() - 1));
 	}
+	else if( sceneObjectType == SceneObjectType::CLOTHINGATTACHMENT && lootTemplateName == "attachment_jedi_clothing"){
+		return lootableJediMods.get(System::random(lootableJediMods.size() - 1));
+	}
 	else if( sceneObjectType == SceneObjectType::CLOTHINGATTACHMENT ){
 		return lootableClothingAttachmentMods.get(System::random(lootableClothingAttachmentMods.size() - 1));
-	}
+	}	
 	else if( sceneObjectType == SceneObjectType::ARMOR || sceneObjectType == SceneObjectType::BODYARMOR ||
 			 sceneObjectType == SceneObjectType::HEADARMOR || sceneObjectType == SceneObjectType::MISCARMOR ||
 			 sceneObjectType == SceneObjectType::LEGARMOR || sceneObjectType == SceneObjectType::ARMARMOR ||

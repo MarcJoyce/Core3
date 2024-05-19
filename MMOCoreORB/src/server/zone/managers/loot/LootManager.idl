@@ -91,6 +91,8 @@ class LootManager extends ManagedService implements Logger {
 	private transient SortedVector<string> lootablePolearmMods;
 	@dereferenced
 	private transient SortedVector<string> lootableHeavyWeaponMods;
+	@dereferenced
+	private transient SortedVector<string> lootableJediMods;
 
 	@dereferenced
 	private transient VectorMap<string, Reference<CrystalData> > crystalData;
@@ -117,6 +119,7 @@ class LootManager extends ManagedService implements Logger {
 		lootableCarbineMods.setNoDuplicateInsertPlan();
 		lootablePolearmMods.setNoDuplicateInsertPlan();
 		lootableHeavyWeaponMods.setNoDuplicateInsertPlan();
+		lootableJediMods.setNoDuplicateInsertPlan();
 
 		levelChance = 0.0;
 
@@ -180,7 +183,7 @@ class LootManager extends ManagedService implements Logger {
 	public native TangibleObject createLootResource(@dereferenced final string resourceTypeName, @dereferenced final string resourceZoneName);
 
 	@local
-	public native string getRandomLootableMod( unsigned int sceneObjectType );
+	public native string getRandomLootableMod( unsigned int sceneObjectType, final string lootTemplateName );
 
 	public native int calculateLootCredits(int level);
 
