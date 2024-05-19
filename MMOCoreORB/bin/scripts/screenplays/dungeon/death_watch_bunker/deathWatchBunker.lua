@@ -115,7 +115,7 @@ DeathWatchBunkerScreenPlay = ScreenPlay:new {
 
 	partStrings = { "@dungeon/death_watch:armorsmith_items", "@dungeon/death_watch:droid_engineer_items", "@dungeon/death_watch:tailored_items" },
 
-	terminalSkills = { "", "", "", "", "crafting_armorsmith_master", "crafting_droidengineer_master", "crafting_tailor_master", "crafting_artisan_master" },
+	terminalSkills = { "", "", "", "", "", "", "", "" },
 
 	terminalSkillMessage = { "@dungeon/death_watch:master_armorsmith_required", "@dungeon/death_watch:master_droidengineer_required", "@dungeon/death_watch:master_tailor_required", "@dungeon/death_watch:master_artisan_required" },
 
@@ -1530,8 +1530,8 @@ function DeathWatchBunkerScreenPlay:checkDoor(pSceneObject, pCreature)
 		end
 
 		if (self:hasRequiredSkill(doorNumber, pCreature) == false) then
-			CreatureObject(pCreature):sendSystemMessage(self.missingSkillMessage[doorNumber])
-			return
+			-- CreatureObject(pCreature):sendSystemMessage(self.missingSkillMessage[doorNumber])
+			-- return
 		end
 
 		self:unlockForGroup(doorNumber, pCreature, true)

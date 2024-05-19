@@ -29,8 +29,8 @@ function deathWatchJetpackCraftingDroid:canAddObject(pDroid, pIngredient, slot)
 	end
 
 	if CreatureObject(pParent):hasSkill(DeathWatchBunkerScreenPlay.terminalSkills[8]) == false then
-		CreatureObject(pParent):sendSystemMessage(DeathWatchBunkerScreenPlay.terminalSkillMessage[4])
-		return TRANSFERCANTADD
+		-- CreatureObject(pParent):sendSystemMessage(DeathWatchBunkerScreenPlay.terminalSkillMessage[4])
+		-- return TRANSFERCANTADD
 	end
 
 	local droidId = SceneObject(pDroid):getObjectID()
@@ -221,8 +221,8 @@ function deathWatchCraftingDroid:canAddObject(pDroid, pIngredient, slot)
 	end
 
 	if CreatureObject(pParent):hasSkill(DeathWatchBunkerScreenPlay.terminalSkills[number + 4]) == false then
-		CreatureObject(pParent):sendSystemMessage(DeathWatchBunkerScreenPlay.terminalSkillMessage[number])
-		return TRANSFERCANTADD
+		-- CreatureObject(pParent):sendSystemMessage(DeathWatchBunkerScreenPlay.terminalSkillMessage[number])
+		-- return TRANSFERCANTADD
 	end
 
 	local hasMineral = readData(statusPrefix .. "alummineral")
