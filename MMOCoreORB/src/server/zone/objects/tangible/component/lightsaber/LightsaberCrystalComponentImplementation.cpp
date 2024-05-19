@@ -471,6 +471,10 @@ int LightsaberCrystalComponentImplementation::inflictDamage(TangibleObject* atta
 		return 0;
 	}
 
+	if (getColor() != 31) {
+		return 0;
+	}
+
 	TangibleObjectImplementation::inflictDamage(attacker, damageType, damage, destroy, notifyClient);
 
 	if (isDestroyed()) {
