@@ -29,25 +29,25 @@ float SharedLabratory::calculateExperimentationValueModifier(int experimentation
 		results = 0.07f;
 		break;
 	case CraftingManager::GOODSUCCESS:
-		results = 0.055f;
+		results = 0.06f;
 		break;
 	case CraftingManager::MODERATESUCCESS:
-		results = 0.015f;
+		results = 0.05f;
 		break;
 	case CraftingManager::SUCCESS:
-		results = 0.01f;
+		results = 0.04f;
 		break;
 	case CraftingManager::MARGINALSUCCESS:
-		results = 0.00f;
+		results = 0.03f;
 		break;
 	case CraftingManager::OK:
-		results = -0.04f;
+		results = 0.02f;
 		break;
 	case CraftingManager::BARELYSUCCESSFUL:
-		results = -0.07f;
+		results = 0.01f;
 		break;
 	case CraftingManager::CRITICALFAILURE:
-		results = -0.08f;
+		results = 0.0f;
 		break;
 	default:
 		results = 0;
@@ -201,9 +201,6 @@ int SharedLabratory::calculateAssemblySuccess(CreatureObject* player,DraftSchema
 	if (assemblyRoll > 30)
 		return CraftingManager::MARGINALSUCCESS;
 
-	if (assemblyRoll > 20)
-		return CraftingManager::OK;
-
-	return CraftingManager::BARELYSUCCESSFUL;
+	return CraftingManager::OK;
 }
 
