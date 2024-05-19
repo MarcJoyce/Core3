@@ -728,7 +728,7 @@ bool LootManagerImplementation::createLootFromCollection(TransactionLog& trx, Sc
 
 		rolls.add(roll);
 
-		if (roll > lootChance)
+		if (roll > lootChance && level <= 200)
 			continue;
 
  		// Start at 0
