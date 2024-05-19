@@ -1085,6 +1085,8 @@ void PlayerObjectImplementation::doDigest(int fillingReduction) {
 	if (drinkFilling > drinkFillingMax)
 		drinkFilling = drinkFillingMax;
 
+	fillingReduction *= 2;
+
 	if (foodFilling > 0) {
 		setFoodFilling(foodFilling - fillingReduction);
 		if (foodFilling < 0)
