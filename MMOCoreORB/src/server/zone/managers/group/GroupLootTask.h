@@ -105,7 +105,7 @@ public:
 			Locker groupLocker(group, corpse);
 			if (group->getLootRule() == GroupManager::MASTERLOOTER && lootContainer->getContainerObjectsSize() <= 0) {
 				StringIdChatParameter msg("group","master_loot_all"); //"The master looter has looted all items from the corpse."
-				group->sendSystemMessage(msg, false);
+				// group->sendSystemMessage(msg, false);
 			}
 		} else {
 			gclocker.release();
@@ -166,7 +166,7 @@ public:
 		lootMember.setTU(player->getDisplayedName());
 		lootMember.setDI(lootCredits);
 		lootMember.setTT(corpse->getDisplayedName());
-		group->sendSystemMessage(lootMember, player);
+		// group->sendSystemMessage(lootMember, player);
 
 		clocker.release();
 
