@@ -220,6 +220,14 @@ class WeaponObject extends TangibleObject {
 		attackType = a;
 	}
 
+	public void setDamageType(int value) {
+		damageType = value;
+	}
+
+	public void setArmorPiercing(int value) {
+		armorPiercing = value;
+	}
+
 	@read
 	public boolean isCertified() {
 		return certified;

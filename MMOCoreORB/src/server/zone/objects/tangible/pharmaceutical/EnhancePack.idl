@@ -139,4 +139,26 @@ class EnhancePack extends PharmaceuticalObject {
 	public boolean isEnhancePack() {
 		return true;
 	}
+
+	public void setEffectiveness(int value) {
+		effectiveness = value;
+	}
+
+	public void setMedicineUseRequired(int value) {
+		super.medicineUseRequired = value;
+	}
+
+	public void setAbsorbtion(int value) {
+		if (absorption > 0)
+			absorption = value;
+	}
+
+	public void setDuration(int value) {
+		duration = value;
+	}
+
+	public void setAttribute(int value) {
+		if (value >= 0 && value <= 8)
+			attribute = value;
+	}
 }

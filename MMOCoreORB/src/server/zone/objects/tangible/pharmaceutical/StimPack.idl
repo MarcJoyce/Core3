@@ -165,4 +165,12 @@ class StimPack extends PharmaceuticalObject {
 	@dereferenced
 	@local
 	public native Vector<byte> getAttributes();
+
+	public void setEffectiveness(int value) {
+		effectiveness = value;
+	}
+
+	public void setMedicineUseRequired(int value) {
+		super.medicineUseRequired = value;
+	}
 }

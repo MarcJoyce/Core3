@@ -224,4 +224,29 @@ class DotPack extends PharmaceuticalObject {
 	public unsigned int getDotType() {
 		return dotType;
 	}
+
+	public void setEffectiveness(int value) {
+		effectiveness = value;
+	}
+
+	public void setMedicineUseRequired(int value) {
+		super.medicineUseRequired = value;
+	}
+
+	public void setDuration(int value) {
+		duration = value;
+	}
+
+	public void setRange(int value) {
+		range = value;
+	}
+
+	public void setPotency(int value) {
+		potency = value;
+	}
+
+	public void setArea(int value) {
+		if (isArea())
+			area = value;
+	}
 }

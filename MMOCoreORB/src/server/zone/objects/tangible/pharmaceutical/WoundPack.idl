@@ -129,4 +129,12 @@ class WoundPack extends PharmaceuticalObject {
 
 	@dirty
 	public native boolean isDroidReconstructionKit();
+
+	public void setEffectiveness(int value) {
+		effectiveness = value;
+	}
+
+	public void setMedicineUseRequired(int value) {
+		super.medicineUseRequired = value;
+	}
 }

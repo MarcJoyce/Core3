@@ -149,4 +149,21 @@ class RangedStimPack extends StimPack {
 	public boolean isRangedStimPack() {
 		return true;
 	}
+
+	public void setEffectiveness(int value) {
+		super.effectiveness = value;
+	}
+
+	public void setMedicineUseRequired(int value) {
+		super.medicineUseRequired = value;
+	}
+
+	public void setRange(int value) {
+		range = value;
+	}
+
+	public void setArea(int value) {
+		if (isArea())
+			area = value;
+	}
 }

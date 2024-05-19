@@ -153,4 +153,17 @@ class CurePack extends PharmaceuticalObject {
 		return true;
 	}
 
+	public void setEffectiveness(int value) {
+		effectiveness = value;
+	}
+
+	public void setMedicineUseRequired(int value) {
+		super.medicineUseRequired = value;
+	}
+
+	public void setArea(int value) {
+		if (isArea())
+			area = value;
+	}
+
 }
