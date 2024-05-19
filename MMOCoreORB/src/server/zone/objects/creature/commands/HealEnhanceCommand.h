@@ -420,8 +420,8 @@ public:
 			enhancePack->decreaseUseCount();
 		}
 
-		if (patient->getObjectID() != enhancer->getObjectID())
-			awardXp(enhancer, "medical", amountEnhanced); // No experience for healing yourself.
+
+			awardXp(enhancer, "medical", amountEnhanced / 2); // No experience for healing yourself.
 
 		doAnimations(enhancer, patient);
 
