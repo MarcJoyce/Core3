@@ -7,7 +7,7 @@ large_energy_capacitor = {
 	directObjectTemplate = "object/tangible/component/weapon/blaster_power_handler_enhancement_min_damage.iff",
 	craftingValues = {
 		{"attackspeed",-0.2,-0.4,2},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

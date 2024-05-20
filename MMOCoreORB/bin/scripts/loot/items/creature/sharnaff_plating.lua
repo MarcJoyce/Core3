@@ -12,7 +12,7 @@ sharnaff_plating = {
 		{"heateffectiveness",3,6,10},
 		{"coldeffectiveness",3,6,10},
 		{"acideffectiveness",3,6,10},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

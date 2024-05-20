@@ -7,7 +7,7 @@ heavy_duty_power_converter = {
 	directObjectTemplate = "object/tangible/component/weapon/blaster_power_handler_enhancement_durability.iff",
 	craftingValues = {
 		{"hitpoints",200,400,0},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

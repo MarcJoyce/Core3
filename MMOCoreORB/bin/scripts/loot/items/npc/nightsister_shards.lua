@@ -9,7 +9,7 @@ nightsister_shards = {
 		{"armor_health_encumbrance",-10,-20,0},
 		{"armor_action_encumbrance",-10,-20,0},
 		{"armor_mind_encumbrance",-10,-20,0},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

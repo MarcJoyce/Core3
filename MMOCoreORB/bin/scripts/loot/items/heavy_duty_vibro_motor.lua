@@ -7,7 +7,7 @@ heavy_duty_vibro_motor = {
 	directObjectTemplate = "object/tangible/component/weapon/vibro_unit_enhancement_durability.iff",
 	craftingValues = {
 		{"hitpoints",200,400,0},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

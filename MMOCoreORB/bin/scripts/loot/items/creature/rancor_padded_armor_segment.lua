@@ -15,7 +15,7 @@ rancor_padded_armor_segment = {
 		{"armor_rating",1,1,0, true},
 		{"heateffectiveness",15,30,10},
 		{"coldeffectiveness",15,30,10},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

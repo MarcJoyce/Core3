@@ -13,7 +13,7 @@ kliknik_reinforced_chitin_armor_segment = {
 		{"armor_action_encumbrance",-7,-14,0},
 		{"armor_mind_encumbrance",-7,-14,0},
 		{"armor_rating",1,1,0, true},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

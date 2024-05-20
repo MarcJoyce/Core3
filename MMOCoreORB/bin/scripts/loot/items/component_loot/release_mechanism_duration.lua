@@ -7,7 +7,7 @@ release_mechanism_duration = {
 	directObjectTemplate = "object/tangible/component/chemistry/release_mechanism_duration.iff",
 	craftingValues = {
 		{"power",10,20,0},
-		{"useCount",1,11,0}
+		{"useCount",11,22,0}
 	},
 	customizationStringName = {},
 	customizationValues = {}

@@ -16,7 +16,7 @@ donkuwah_bone_armor_segment = {
 		{"heateffectiveness",5,10,10},
 		{"coldeffectiveness",5,10,10},
 		{"blasteffectiveness",5,10,10},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

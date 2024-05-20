@@ -8,7 +8,7 @@ donkuwah_poison = {
 	craftingValues = {
 		{"power",10,25,0},
 		{"potency",10,20,0},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

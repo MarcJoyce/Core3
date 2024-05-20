@@ -14,7 +14,7 @@ armor_segment_bone = {
 		{"armor_special_type",2,2,0, true},
 		{"armor_special_effectiveness",5,10,10},
 		{"armor_special_integrity",100,100,0, true},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringName = {},
 	customizationValues = {}

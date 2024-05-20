@@ -12,7 +12,7 @@ blaster_pistol_barrel = {
 		{"woundchance",5,10,0},
 		{"hitpoints",50,100,0, true},
 		{"midrangemod",5,10,0},
-		{"useCount",1,11,0}
+		{"useCount",11,22,0}
 	},
 	customizationStringName = {},
 	customizationValues = {}

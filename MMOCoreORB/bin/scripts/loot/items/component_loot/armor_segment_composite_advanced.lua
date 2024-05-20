@@ -14,7 +14,7 @@ armor_segment_composite_advanced = {
 		{"armor_special_type",256,256,0, true},
 		{"armor_special_effectiveness",15,35,10},
 		{"armor_special_integrity",100,100,0, true},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringName = {},
 	customizationValues = {}

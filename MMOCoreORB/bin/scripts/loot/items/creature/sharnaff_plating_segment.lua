@@ -16,7 +16,7 @@ sharnaff_plating_segment = {
 		{"coldeffectiveness",5,10,10},
 		{"heateffectiveness",5,10,10},
 		{"acideffectiveness",5,10,10},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

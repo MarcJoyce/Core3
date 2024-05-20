@@ -9,7 +9,7 @@ solid_delivery_shell_advanced = {
 		{"power",30,75,0},
 		{"charges",20,45,0},
 		{"hitpoints",30,75,0, true},
-		{"useCount",1,11,0}
+		{"useCount",11,22,0}
 	},
 	customizationStringName = {},
 	customizationValues = {}

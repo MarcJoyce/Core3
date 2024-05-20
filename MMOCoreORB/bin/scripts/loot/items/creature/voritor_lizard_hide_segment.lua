@@ -15,7 +15,7 @@ voritor_lizard_hide_segment = {
 		{"armor_rating",1,1,0, true},
 		{"energyeffectiveness",5,10,10},
 		{"kineticeffectiveness",5,10,10},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

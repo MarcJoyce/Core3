@@ -10,7 +10,7 @@ blaster_power_handler = {
 		{"maxdamage",10,20,0},
 		{"attackspeed",-0.2,-0.5,2},
 		{"hitpoints",50,100,0, true},
-		{"useCount",1,11,0}
+		{"useCount",11,22,0}
 	},
 	customizationStringName = {},
 	customizationValues = {}

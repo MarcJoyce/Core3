@@ -11,7 +11,7 @@ voritor_lizard_scales = {
 		{"armor_mind_encumbrance",5,0,0},
 		{"energyeffectiveness",3,6,10},
 		{"kineticeffectiveness",3,6,10},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

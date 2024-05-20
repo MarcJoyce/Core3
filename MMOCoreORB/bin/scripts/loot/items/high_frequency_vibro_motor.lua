@@ -7,7 +7,7 @@ high_frequency_vibro_motor = {
 	directObjectTemplate = "object/tangible/component/weapon/vibro_unit_enhancement_wounding.iff",
 	craftingValues = {
 		{"woundchance",5,10,10},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

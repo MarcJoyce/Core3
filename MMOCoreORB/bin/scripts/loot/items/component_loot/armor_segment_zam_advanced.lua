@@ -14,7 +14,7 @@ armor_segment_zam_advanced = {
 		{"armor_special_type",32,32,0, true},
 		{"armor_special_effectiveness",10,20,0},
 		{"armor_special_integrity",100,100,0, true},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringName = {},
 	customizationValues = {}

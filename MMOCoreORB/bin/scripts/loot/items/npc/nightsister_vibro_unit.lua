@@ -14,7 +14,7 @@ nightsister_vibro_unit = {
 		{"midrangemod",15,30,0},
 		{"attackhealthcost",10,0,0},
 		{"attackmindcost",10,0,0},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

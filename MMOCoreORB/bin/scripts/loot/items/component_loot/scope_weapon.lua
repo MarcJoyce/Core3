@@ -12,7 +12,7 @@ scope_weapon = {
 		{"attackhealthcost",10,0,0},
 		{"attackactioncost",10,0,0},
 		{"attackmindcost",10,0,0},
-		{"useCount",1,11,0}
+		{"useCount",11,22,0}
 	},
 	customizationStringName = {},
 	customizationValues = {}

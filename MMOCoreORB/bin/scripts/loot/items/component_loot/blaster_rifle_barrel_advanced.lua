@@ -12,7 +12,7 @@ blaster_rifle_barrel_advanced = {
 		{"woundchance",5,10,0},
 		{"hitpoints",50,100,0, true},
 		{"midrangemod",20,40,0},
-		{"useCount",1,11,0}
+		{"useCount",11,22,0}
 	},
 	customizationStringName = {},
 	customizationValues = {}

@@ -10,7 +10,7 @@ brackaset_plates = {
 		{"armor_action_encumbrance",3,0,0},
 		{"armor_mind_encumbrance",3,0,0},
 		{"blasteffectiveness",3,6,10},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

@@ -12,7 +12,7 @@ krayt_dragon_scales = {
 		{"acideffectiveness",4,8,10},
 		{"kineticeffectiveness",4,8,10},
 		{"heateffectiveness",4,8,10},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

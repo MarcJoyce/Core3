@@ -8,7 +8,7 @@ geo_power_cube_green = {
 	craftingValues = {
 		{"armor_integrity",6000,12000,0},
 		{"hitpoints",200,400,0},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

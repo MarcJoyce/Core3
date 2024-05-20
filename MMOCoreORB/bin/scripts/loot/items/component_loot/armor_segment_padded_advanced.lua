@@ -14,7 +14,7 @@ armor_segment_padded_advanced = {
 		{"armor_special_type",4,4,0, true},
 		{"armor_special_effectiveness",15,30,0},
 		{"armor_special_integrity",100,100,0, true},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringName = {},
 	customizationValues = {}

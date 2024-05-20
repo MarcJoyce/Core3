@@ -15,7 +15,7 @@ rancor_tooth = {
 		{"attackhealthcost",20,0,0},
 		{"attackactioncost",20,0,0},
 		{"attackmindcost",20,0,0},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

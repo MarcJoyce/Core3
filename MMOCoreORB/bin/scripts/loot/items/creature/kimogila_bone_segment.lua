@@ -15,7 +15,7 @@ kimogila_bone_segment = {
 		{"armor_rating",1,1,0, true},
 		{"heateffectiveness",7,20,10},
 		{"coldeffectiveness",7,20,10},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

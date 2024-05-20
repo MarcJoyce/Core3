@@ -14,7 +14,7 @@ fambaa_hide_segment = {
 		{"armor_mind_encumbrance",16,1,0},
 		{"armor_rating",1,1,0, true},
 		{"coldeffectiveness",4,15,10},
-		{"useCount",1,11,0},
+		{"useCount",11,22,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}
