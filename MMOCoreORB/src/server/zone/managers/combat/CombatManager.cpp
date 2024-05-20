@@ -2495,7 +2495,7 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 			int forceDefense = defender->getSkillMod("force_defense");
 
 			if (forceDefense > 100) {
-				forceDefence = 100;
+				forceDefense = 100;
 			}
 
 			if (forceDefense > 0)
