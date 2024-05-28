@@ -52,7 +52,7 @@ ConversationScreen* InformantMissionScreenHandler::handleScreen(CreatureObject* 
 	}
 
 	//Check if player is bounty hunter.
-	if (!conversingPlayer->hasSkill("combat_bountyhunter_novice")) {
+	if (!player->hasSkill("combat_bountyhunter_novice") && !player->hasSkill("force_title_jedi_rank_03")) {
 		conversationScreen->setDialogText(String("@mission/mission_generic:informant_not_bounty_hunter"));
 	} else {
 		//Get bounty mission object if it exists.

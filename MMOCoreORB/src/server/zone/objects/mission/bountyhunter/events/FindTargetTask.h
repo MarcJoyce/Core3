@@ -183,6 +183,10 @@ class FindTargetTask : public Task, public Logger {
 
 		successChance -= ((getTargetLevel(player, objective)) / 3);
 
+		if (player->hasSkill("force_title_jedi_rank_03")) {
+			successChance += 50;
+		}
+
 		if (successChance < 5) {
 			successChance = 5;
 		} else if (successChance > 95) {
@@ -205,6 +209,11 @@ class FindTargetTask : public Task, public Logger {
 		long long skillMod = player->getSkillMod(skillToUse) + player->getSkillModFromBuffs(skillToUse);
 
 		int checkedSkillMod = skillMod;
+
+		if (player->hasSkill("force_title_jedi_rank_03")) {
+			checkedSkillMod += 50;
+		}
+		
 		if (checkedSkillMod < 0) {
 			checkedSkillMod = 0;
 		} else if (checkedSkillMod > maximumSkillMod) {

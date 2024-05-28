@@ -60,7 +60,17 @@ bh_targets_at_mission_level = {
 		"bh_feral_force_wielder", --level 115
 		"bh_force_crystal_hunter", --level 115
 		"bh_tusken_carnage_champion", --level 116
-		"bh_dark_adept" --level 120
+		"bh_dark_adept", --level 120
+		"dark_adept",
+		"dark_jedi_knight",
+		"dark_jedi_master",
+		"black_sun_assassin",
+		"black_sun_guard",
+		"black_sun_henchman",
+		"black_sun_thug",
+		"death_watch_bloodguard",
+		"death_watch_wraith",
+		"nightsister_elder"
 	}
 }
 
