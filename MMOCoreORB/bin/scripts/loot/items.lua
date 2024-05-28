@@ -1263,3 +1263,5 @@ includeFile("items/force_crystal_ulics_redemption.lua")
 includeFile("items/force_crystal_windus_guile.lua")
 
 includeFile("items/attachment_jedi_clothing.lua")
+
+includeFile("items/custom/resource_deed.lua")
