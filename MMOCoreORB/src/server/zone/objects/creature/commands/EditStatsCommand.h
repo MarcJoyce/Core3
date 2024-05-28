@@ -6,6 +6,7 @@
 #define EDITSTATSCOMMAND_H_
 
 #include "server/zone/objects/scene/SceneObject.h"
+#include "server/zone/objects/player/PlayerObject.h"
 
 class EditStatsCommand : public QueueCommand {
 public:
@@ -70,7 +71,8 @@ public:
 					patient->addMaxHAM(CreatureAttribute::getAttribute("focus"), amount);
 					patient->addMaxHAM(CreatureAttribute::getAttribute("willpower"), amount);
 				}
-			} else if (commandType.beginsWith("skill")) {
+			}
+			else if (commandType.beginsWith("skill")) {
 				String state;
 				args.getStringToken(state);
 
@@ -93,9 +95,17 @@ public:
 					patient->addSkillMod(SkillModManager::SKILLBOX, skillMod, amount);
 				}
 			}
+			else if (commandType.beginsWith("vis")) {
+				int vis;
+				int = args.getIntToken();
+
+				Reference<PlayerObject*> ghost = patient->getSlottedObject("ghost").castTo<PlayerObject*>();
+
+				ghost->setVisibility(vis);
+			}
 
 		} catch (Exception& e) {
-			creature->sendSystemMessage("Syntax: /editStats [buff/skill] [ham/all/skillMod] amount");
+			creature->sendSystemMessage("Syntax: /editStats [buff/skill/vis] [ham/all/skillMod] amount");
 		}
 
 		return SUCCESS;

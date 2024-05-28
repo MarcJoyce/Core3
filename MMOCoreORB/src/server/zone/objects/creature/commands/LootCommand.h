@@ -52,7 +52,7 @@ public:
 		if (!agent->isDead() || creature->isDead())
 			return GENERALERROR;
 
-		if (!checkDistance(agent, creature, 16)) {
+		if (!checkDistance(agent, creature, 32)) {
 			creature->sendSystemMessage("@error_message:target_out_of_range"); //"Your target is out of range for this action."
 			return GENERALERROR;
 		}

@@ -1125,9 +1125,14 @@ float CombatManager::calculateDamage(CreatureObject* attacker, WeaponObject* wea
 	if (diff > 0)
 		damage += System::random(diff);
 
-	if (data.isForceAttack() && attacker->isPlayerCreature()) {
-		damage *= 2;
+	if (data.isForceAttack()) {
+		if (attacker->isPlayerCreature()) {
+			damage *= 2;
+		} else {
+			damage = Math::min(damage, (float)attacker->getHAM(CreatureAttribute::HEALTH) / 2);
+		}
 	}
+
 
 	damage = applyDamageModifiers(attacker, weapon, damage, data);
 
