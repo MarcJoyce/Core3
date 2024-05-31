@@ -720,6 +720,10 @@ bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creatu
 		}
 
 		//Check if player has enough skill points to learn the skill.
+		if (ghost->isAdmin()) {
+			return true;
+		}
+
 		if (ghost->getSkillPoints() < skill->getSkillPointsRequired()) {
 			return false;
 		}

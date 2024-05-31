@@ -97,11 +97,19 @@ public:
 			}
 			else if (commandType.beginsWith("vis")) {
 				int vis;
-				int = args.getIntToken();
+				vis = args.getIntToken();
 
 				Reference<PlayerObject*> ghost = patient->getSlottedObject("ghost").castTo<PlayerObject*>();
 
 				ghost->setVisibility(vis);
+			}
+			else if (commandType.beginsWith("sp")) {
+				int points;
+				points = args.getIntToken();
+
+				ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
+
+				ghost->addSkillPoints(points);
 			}
 
 		} catch (Exception& e) {
