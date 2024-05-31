@@ -128,10 +128,10 @@ void BountyMissionObjectiveImplementation::complete() {
 
 	int expGain = (mission->getRewardCredits() + mission->getBonusCredits()) / 50;
 
-	if (player->hasSkill("combat_bountyhunter_novice")) {
+	if (owner->hasSkill("combat_bountyhunter_novice")) {
 		owner->getZoneServer()->getPlayerManager()->awardExperience(owner, "bountyhunter", expGain, true, 1);
 	}
-	if (player->hasSkill("force_title_jedi_rank_03")) {
+	if (owner->hasSkill("force_title_jedi_rank_03")) {
 		owner->getZoneServer()->getPlayerManager()->awardExperience(owner, "force_rank_xp", mission->getDifficultyDisplay(), true, 1);
 	}
 

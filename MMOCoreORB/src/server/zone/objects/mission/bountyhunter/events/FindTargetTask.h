@@ -167,10 +167,10 @@ class FindTargetTask : public Task, public Logger {
 
 	bool getSuccess(CreatureObject* player, BountyMissionObjective* objective) {
 		String skillToUse = "droid_find_chance";
-		int maximumSkillMod = 155;
+		int maximumSkillMod = 1000;
 		if (track) {
 			skillToUse = "droid_track_chance";
-			maximumSkillMod = 125;
+			maximumSkillMod = 1000;
 		}
 
 		long long successChance = player->getSkillMod(skillToUse) + player->getSkillModFromBuffs(skillToUse);
@@ -183,6 +183,10 @@ class FindTargetTask : public Task, public Logger {
 
 		successChance -= ((getTargetLevel(player, objective)) / 3);
 
+		if (successChance < 50) {
+			successChance = 50;
+		}
+
 		if (player->hasSkill("force_title_jedi_rank_03")) {
 			successChance += 50;
 		}
@@ -194,6 +198,10 @@ class FindTargetTask : public Task, public Logger {
 		}
 
 		int randomValue = System::random(100);
+
+		if (player->hasSkill("admin_base")) {
+			successChance = randomValue + 1;
+		}
 
 		return randomValue < successChance;
 	}
@@ -221,6 +229,10 @@ class FindTargetTask : public Task, public Logger {
 		}
 
 		int time = 150 - checkedSkillMod;
+
+		if (player->hasSkill("admin_base")) {
+			time = 10;
+		}
 
 		return time + System::random(time / 2);
 	}
