@@ -183,18 +183,11 @@ dantooine_destroy_missions = {
 			size = 25,
 		},
 		{
-			lairTemplateName = "global_dark_jedi_camp_dark_jedi_theater",
+			lairTemplateName = "global_dark_jedi_camp_dark_jedi_theater2",
 			minDifficulty = 95,
 			maxDifficulty = 99,
 			size = 25,
 		},
-		{
-			lairTemplateName = "dantooine_graul_mauler_lair_neutral_large_boss_01.lua",
-			minDifficulty = 95,
-			maxDifficulty = 99,
-			size = 25,
-		},
-
 	}
 }
 

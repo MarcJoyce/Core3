@@ -152,6 +152,12 @@ factional_imperial_destroy_missions = {
 			maxDifficulty = 27,
 			size = 25,
 		},
+		{
+			lairTemplateName = "global_rebel_rear_admiral_theater",
+			minDifficulty = 95,
+			maxDifficulty = 99,
+			size = 25,
+		},
 	}
 }
 

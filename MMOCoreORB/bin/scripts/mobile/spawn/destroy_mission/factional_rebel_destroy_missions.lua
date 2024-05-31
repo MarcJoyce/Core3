@@ -194,6 +194,12 @@ factional_rebel_destroy_missions = {
 			maxDifficulty = 32,
 			size = 25,
 		},
+		{
+			lairTemplateName = "global_imperial_novatrooper_theater",
+			minDifficulty = 95,
+			maxDifficulty = 99,
+			size = 25,
+		},
 	}
 }
 

@@ -283,3 +283,10 @@ includeFile("lair/npc_theater/yavin4/yavin4_stranded_imperial_patrol_imperial_me
 includeFile("lair/npc_theater/yavin4/yavin4_stranded_rebel_base_rebel_medium_theater.lua")
 includeFile("lair/npc_theater/yavin4/yavin4_stranded_rebel_patrol_rebel_medium_theater.lua")
 
+
+--Custom files
+includeFile("lair/npc_theater/dathomir/dathomir_nightsister_elder_enclave_neutral_large_theater2.lua")
+includeFile("lair/npc_theater/global/global_dark_jedi_camp_dark_jedi_theater2.lua")
+
+includeFile("lair/npc_theater/global/global_rebel_rear_admiral_theater.lua")
+includeFile("lair/npc_theater/global/global_imperial_novatrooper_theater.lua")
