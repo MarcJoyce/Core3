@@ -623,8 +623,19 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 	if (killerID == targetID && ownerID != killerID) {
 		owner->sendSystemMessage("@mission/mission_generic:failed"); // Mission failed
 
-		if (killer->isPlayerCreature())
+		if (killer->isPlayerCreature()) {
 			killer->sendSystemMessage("You have defeated a bounty hunter, ruining his mission against you!");
+			killer->sendSystemMessage("Word has spread of your victory against the guild, leading to a reduction in the desire to hunt you further.");
+			Reference<PlayerObject*> ghost = killer->getSlottedObject("ghost").castTo<PlayerObject*>();
+			int visReward = 1000;
+			int vis = ghost->getVisibility();
+
+			if (vis < visReward) {
+				visReward = vis;
+			}
+
+			ghost->setVisibility(vis - visReward);
+		}
 
 		fail();
 

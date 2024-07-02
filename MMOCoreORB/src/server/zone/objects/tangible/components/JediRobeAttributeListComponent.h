@@ -59,6 +59,36 @@ public:
 			int mod = skills->get("jedi_force_power_max");
 			alm->insertAttribute("jedi_robe_power", "+" + String::valueOf(mod));
 		}
+
+		if (skills->contains("onehandlightsaber_accuracy")){
+			int mod = skills->get("onehandlightsaber_accuracy");
+
+			StringBuffer name;
+
+			name << "cat_skill_mod_bonus.@stat_n:" << "onehandlightsaber_accuracy";
+
+			alm->insertAttribute(name.toString(), "+" + String::valueOf(mod));
+		}
+
+		if (skills->contains("polearmlightsaber_accuracy")){
+			int mod = skills->get("polearmlightsaber_accuracy");
+		
+			StringBuffer name;
+
+			name << "cat_skill_mod_bonus.@stat_n:" << "polearmlightsaber_accuracy";
+
+			alm->insertAttribute(name.toString(), "+" + String::valueOf(mod));
+		}
+
+		if (skills->contains("twohandlightsaber_accuracy")){
+			int mod = skills->get("twohandlightsaber_accuracy");
+			
+			StringBuffer name;
+
+			name << "cat_skill_mod_bonus.@stat_n:" << "twohandlightsaber_accuracy";
+
+			alm->insertAttribute(name.toString(), "+" + String::valueOf(mod));
+		}
 	}
 };
 
