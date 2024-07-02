@@ -78,7 +78,7 @@ bool ConfigManager::loadConfigData() {
 
 	// Load file based strings into config
 	setStringFromFile("Core3.MOTD", "conf/motd.txt");
-	setStringFromFile("Core3.Revision", "conf/rev.txt");
+	// setStringFromFile("Core3.Revision", "conf/rev.txt");
 
 #ifdef DEBUG_CONFIGMANAGER
 	info("Parsed config into memory in " + String::valueOf(getConfigDataAgeMs()) + "ms", true);
