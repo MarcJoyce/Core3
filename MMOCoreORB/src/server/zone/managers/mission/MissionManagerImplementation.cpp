@@ -232,6 +232,7 @@ void MissionManagerImplementation::handleMissionListRequest(MissionTerminal* mis
 
 void MissionManagerImplementation::handleMissionAccept(MissionTerminal* missionTerminal, MissionObject* mission, CreatureObject* player) {
 	ManagedReference<SceneObject*> missionBag = mission->getParent().get();
+	ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
 
 	if (missionBag == nullptr)
 		return;
@@ -266,8 +267,8 @@ void MissionManagerImplementation::handleMissionAccept(MissionTerminal* missionT
 		}
 	}
 
-	//Limit to two missions (only one of them can be a bounty mission)
-	if (missionCount >= 4 || (hasBountyMission && mission->getTypeCRC() == MissionTypes::BOUNTY)) {
+	//Limit to four missions (only one of them can be a bounty mission)
+	if (!ghost->isAdmin() && (missionCount >= 4 || (hasBountyMission && mission->getTypeCRC() == MissionTypes::BOUNTY))) {
 		StringIdChatParameter stringId("mission/mission_generic", "too_many_missions");
 		player->sendSystemMessage(stringId);
 		return;
@@ -599,9 +600,9 @@ void MissionManagerImplementation::randomizeArtisanTerminalMissions(CreatureObje
 		//Clear mission type before calling mission generators.
 		mission->setTypeCRC(0);
 
-		if (i < 6) {
+		if (i < 24) {
 			randomizeGenericSurveyMission(player, mission, Factions::FACTIONNEUTRAL);
-		} else if (i < 12) {
+		} else if (i < 30) {
 			randomizeGenericCraftingMission(player, mission, Factions::FACTIONNEUTRAL);
 		}
 
@@ -628,9 +629,9 @@ void MissionManagerImplementation::randomizeEntertainerTerminalMissions(Creature
 		//Clear mission type before calling mission generators.
 		mission->setTypeCRC(0);
 
-		if (i < 6) {
+		if (i < 24) {
 			randomizeGenericEntertainerMission(player, mission, Factions::FACTIONNEUTRAL, MissionTypes::DANCER);
-		} else if (i < 12) {
+		} else if (i < 30) {
 			randomizeGenericEntertainerMission(player, mission, Factions::FACTIONNEUTRAL, MissionTypes::MUSICIAN);
 		}
 
@@ -657,9 +658,9 @@ void MissionManagerImplementation::randomizeScoutTerminalMissions(CreatureObject
 		//Clear mission type before calling mission generators.
 		mission->setTypeCRC(0);
 
-		if (i < 6) {
+		if (i < 24) {
 			randomizeGenericReconMission(player, mission, Factions::FACTIONNEUTRAL);
-		} else if (i < 12) {
+		} else if (i < 30) {
 			randomizeGenericHuntingMission(player, mission, Factions::FACTIONNEUTRAL);
 		}
 
@@ -716,9 +717,9 @@ void MissionManagerImplementation::randomizeFactionTerminalMissions(CreatureObje
 		//Clear mission type before calling mission generators.
 		mission->setTypeCRC(0);
 
-		if (i < 6) {
+		if (i < 24) {
 			randomizeGenericDestroyMission(player, mission, faction);
-		} else if (i < 12) {
+		} else if (i < 30) {
 			randomizeGenericDeliverMission(player, mission, faction);
 		} else {
 			if (enableFactionalCraftingMissions && numberOfCraftingMissions < 6) {

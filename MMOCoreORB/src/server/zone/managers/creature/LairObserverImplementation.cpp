@@ -265,7 +265,7 @@ bool LairObserverImplementation::checkForNewSpawns(TangibleObject* lair, Tangibl
 	VectorMap<String, int> objectsToSpawn; // String mobileTemplate, int number to spawn
 
 	if (spawnNumber == 4) {
-		if (System::random(100) > 9)
+		if (System::random(100) > 24)
 			return false;
 
 		const VectorMap<String, int>* mobs = lairTemplate->getBossMobiles();
