@@ -43,11 +43,9 @@
 
 object_tangible_wearables_armor_mandalorian_armor_mandalorian_helmet = object_tangible_wearables_armor_mandalorian_shared_armor_mandalorian_helmet:new {
 	templateType = ARMOROBJECT,
+objectMenuComponent = "ArmorObjectMenuComponent",
 
-	certificationsRequired = { "combat_bountyhunter_master",
-					"combat_commando_master",
-					"outdoors_squadleader_master",
-					"outdoors_ranger_master" },
+	
 
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
@@ -85,10 +83,18 @@ object_tangible_wearables_armor_mandalorian_armor_mandalorian_helmet = object_ta
 				"object/mobile/vendor/twilek_male.iff",
 				"object/mobile/vendor/weequay_male.iff",
 				"object/mobile/vendor/zabrak_female.iff",
-				"object/mobile/vendor/zabrak_male.iff" },
+				"object/mobile/vendor/zabrak_male.iff",
+                                "object/creature/player/ithorian_male.iff",
+				"object/creature/player/ithorian_female.iff",
+				"object/mobile/vendor/ithorian_female.iff",
+				"object/mobile/vendor/ithorian_male.iff",
+                                "object/creature/player/wookiee_male.iff",
+				"object/creature/player/wookiee_female.iff",
+				"object/mobile/vendor/wookiee_female.iff",
+				"object/mobile/vendor/wookiee_male.iff" },
 	
 	-- Damage types in WeaponObject
-	vulnerability = COLD + ELECTRICITY + STUN + LIGHTSABER,
+	
 
 	-- These are default Blue Frog stats, These are also used as temporary DWB crafting stats. Needs to be adjusted to random color, and Blast should be a Special Resist. Encumberance on boots and all arm/hand armor are estimated. Helm/Chest/Leggings are correct. 
 	healthEncumbrance = 45,
@@ -96,18 +102,18 @@ object_tangible_wearables_armor_mandalorian_armor_mandalorian_helmet = object_ta
 	mindEncumbrance = 286,
 
 	-- LIGHT, MEDIUM, HEAVY
-	rating = LIGHT,
-	maxCondition = 40000,
+	rating = MEDIUM,
+	maxCondition = 100000,
 
-	kinetic = 58,
-	energy = 58,
-	electricity = 0,
-	stun = 0,
-	blast = 65,
-	heat = 58,
-	cold = 0,
-	acid = 58,
-	lightSaber = 0
+	kinetic = 80,
+	energy = 80,
+	electricity = 90,
+	stun = 80,
+	blast = 45,
+	heat = 45,
+	cold = 100,
+	acid = 70,
+	lightSaber = 60
 }
 
 ObjectTemplates:addTemplate(object_tangible_wearables_armor_mandalorian_armor_mandalorian_helmet, "object/tangible/wearables/armor/mandalorian/armor_mandalorian_helmet.iff")

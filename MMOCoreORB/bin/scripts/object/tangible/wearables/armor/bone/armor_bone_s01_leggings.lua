@@ -43,6 +43,7 @@
 
 object_tangible_wearables_armor_bone_armor_bone_s01_leggings = object_tangible_wearables_armor_bone_shared_armor_bone_s01_leggings:new {
 	templateType = ARMOROBJECT,
+objectMenuComponent = "ArmorObjectMenuComponent",
 
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",

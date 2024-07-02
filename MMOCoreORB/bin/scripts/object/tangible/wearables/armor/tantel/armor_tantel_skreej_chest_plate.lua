@@ -43,6 +43,7 @@
 
 object_tangible_wearables_armor_tantel_armor_tantel_skreej_chest_plate = object_tangible_wearables_armor_tantel_shared_armor_tantel_skreej_chest_plate:new {
 	templateType = ARMOROBJECT,
+objectMenuComponent = "ArmorObjectMenuComponent",
 
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",

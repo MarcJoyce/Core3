@@ -43,11 +43,7 @@
 
 object_tangible_wearables_armor_mandalorian_armor_mandalorian_belt = object_tangible_wearables_armor_mandalorian_shared_armor_mandalorian_belt:new {
 	templateType = ARMOROBJECT,
-
-	certificationsRequired = { "combat_bountyhunter_master",
-					"combat_commando_master",
-					"outdoors_squadleader_master",
-					"outdoors_ranger_master" },
+objectMenuComponent = "ArmorObjectMenuComponent",
 
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
@@ -98,7 +94,15 @@ object_tangible_wearables_armor_mandalorian_armor_mandalorian_belt = object_tang
 				"object/mobile/vendor/wookiee_female.iff",
 				"object/mobile/vendor/wookiee_male.iff",
 				"object/mobile/vendor/zabrak_female.iff",
-				"object/mobile/vendor/zabrak_male.iff" },
+				"object/mobile/vendor/zabrak_male.iff",
+                                "object/creature/player/ithorian_male.iff",
+				"object/creature/player/ithorian_female.iff",
+				"object/mobile/vendor/ithorian_female.iff",
+				"object/mobile/vendor/ithorian_male.iff",
+                                "object/creature/player/wookiee_male.iff",
+				"object/creature/player/wookiee_female.iff",
+				"object/mobile/vendor/wookiee_female.iff",
+				"object/mobile/vendor/wookiee_male.iff" },
 	
 
 }
