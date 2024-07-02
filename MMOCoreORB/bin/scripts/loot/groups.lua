@@ -407,3 +407,4 @@ includeFile("groups/named_crystals.lua")
 includeFile("groups/jedi_clothing_attachments.lua")
 
 includeFile("groups/custom/resource_deed.lua")
+includeFile("groups/custom/attachments_all.lua")
