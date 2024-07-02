@@ -21,8 +21,8 @@ class HealEnhanceCommand : public QueueCommand {
 
 public:
 	HealEnhanceCommand(const String& name, ZoneProcessServer* server) : QueueCommand(name, server) {
-		mindCost = 150;
-		range = 7;
+		mindCost = 100;
+		range = 16;
 	}
 
 	void deactivateWoundTreatment(CreatureObject* creature) const {
@@ -40,8 +40,8 @@ public:
 			}
 		}
 
-		// Force the delay to be at least 3 seconds.
-		delay = (delay < 3) ? 3 : delay;
+		// Force the delay to be at least 1 second.
+		delay = (delay < 1) ? 1 : delay;
 
 		StringIdChatParameter message("healing_response", "healing_response_59"); // You are now ready to heal more wounds or apply more enhancements.
 		Reference<InjuryTreatmentTask*> task = new InjuryTreatmentTask(creature, message, "woundTreatment");

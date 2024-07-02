@@ -40,8 +40,8 @@ public:
 			}
 		}
 
-		//Force the delay to be at least 3 seconds.
-		delay = (delay < 3) ? 3 : delay;
+		//Force the delay to be at least 1 seconds.
+		delay = (delay < 1) ? 1 : delay;
 
 		StringIdChatParameter message("healing_response", "healing_response_59");
 		Reference<InjuryTreatmentTask*> task = new InjuryTreatmentTask(creature, message, "woundTreatment");
