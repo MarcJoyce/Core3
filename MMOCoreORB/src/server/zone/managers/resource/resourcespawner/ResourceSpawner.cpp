@@ -307,7 +307,7 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 
 		FileWriter* writer = new FileWriter(file);
 
-		writer->writeLine("resources = {");
+		writer->writeLine("resources = [");
 
 		for(int i = 0; i < resourceMap->size(); ++i) {
 
@@ -315,39 +315,39 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 
 			writer->writeLine("	{");
 
-			writer->writeLine("		name = \"" + spawn->getName() + "\",");
-			writer->writeLine("		type = \"" + spawn->getType() + "\",");
+			writer->writeLine("		name : \"" + spawn->getName() + "\",");
+			writer->writeLine("		type : \"" + spawn->getType() + "\",");
 
-			writer->writeLine("		classes = {");
+			writer->writeLine("		classes : [");
 			for(int i = 0; i < 8; ++i) {
 				String spawnClass = spawn->getClass(i);
 				if(spawnClass != "") {
 					String spawnClass2 = spawn->getStfClass(i);
-					writer->writeLine("			{\"" + spawnClass + "\", \"" + spawnClass2 + "\"},");
+					writer->writeLine("			\"" + spawnClass2 + "\",");
 				}
 			}
-			writer->writeLine("		},");
+			writer->writeLine("		],");
 
-			writer->writeLine("		attributes = {");
+			writer->writeLine("		attributes : [");
 			for(int i = 0; i < 12; ++i) {
 				String attribute = "";
 				int value = spawn->getAttributeAndValue(attribute, i);
 				if(attribute != "") {
-					writer->writeLine("			{\"" + attribute + "\", " + String::valueOf(value) + "},");
+					writer->writeLine("			{\"" + attribute + "\": " + String::valueOf(value) + "},");
 				}
 			}
 
-			writer->writeLine("		},");
+			writer->writeLine("		],");
 
-			writer->writeLine("		zoneRestriction = \"" + spawn->getZoneRestriction() + "\",");
-			writer->writeLine("		surveyToolType = " + String::valueOf(spawn->getSurveyToolType()) + ",");
-			writer->writeLine("		containerCRC = " + String::valueOf(spawn->getContainerCRC()) + ",");
+			// writer->writeLine("		zoneRestriction = \"" + spawn->getZoneRestriction() + "\",");
+			// writer->writeLine("		surveyToolType = " + String::valueOf(spawn->getSurveyToolType()) + ",");
+			// writer->writeLine("		containerCRC = " + String::valueOf(spawn->getContainerCRC()) + ",");
 
 			writer->writeLine("	},");
 			writer->writeLine("");
 		}
 
-		writer->writeLine("}");
+		writer->writeLine("]");
 
 		writer->close();
 
@@ -618,8 +618,10 @@ int ResourceSpawner::randomizeValue(int min, int max) {
 		}
 	}
 
-	if (randomStat < ((max - min) + (min / 2))) {
-		randomStat = ((max - min) + (min / 2));
+	int minThreshold = (((max - min) * 0.95) + min);
+
+	if (randomStat < minThreshold) {
+		randomStat = minThreshold;
 	}
 
 	return randomStat;
