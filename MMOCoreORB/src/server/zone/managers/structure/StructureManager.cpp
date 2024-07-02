@@ -870,7 +870,7 @@ int StructureManager::redeedStructure(CreatureObject* creature) {
 			trxDeed.addState("structureOriginalObjectID", structureObject->getObjectID());
 			trxDeed.groupWith(trx);
 
-			deed->setSurplusMaintenance(maint - redeedCost);
+			deed->setSurplusMaintenance(maint); // Do not lose credits on redeed
 			deed->setSurplusPower(structureObject->getSurplusPower());
 
 			structureObject->setDeedObjectID(0); // Set this to 0 so the deed doesn't get destroyed with the structure.
