@@ -44,7 +44,7 @@ public:
 			targetCreature->sendSystemMessage(params);
 
 			creature->sendSystemMessage("Granted skill " + arguments.toString()
-					+ "to " + targetCreature->getFirstName());
+					+ " to " + targetCreature->getFirstName());
 		} else {
 			StringIdChatParameter params;
 			params.setTO(arguments.toString());
@@ -53,7 +53,7 @@ public:
 			targetCreature->sendSystemMessage(params);
 
 			creature->sendSystemMessage("Failed to grant skill " + arguments.toString()
-					+ "to " + targetCreature->getFirstName());
+					+ " to " + targetCreature->getFirstName());
 		}
 		return SUCCESS;
 	}

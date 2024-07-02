@@ -166,6 +166,7 @@ public:
 
 		// Force Sensitive SkillMods
 		if (vehicle->isVehicleObject()) {
+			newSpeed += creature->getSkillMod("force_vehicle_speed");
 			newAccel += creature->getSkillMod("force_vehicle_speed");
 			newTurn += creature->getSkillMod("force_vehicle_control");
 		}

@@ -103,14 +103,6 @@ public:
 
 				ghost->setVisibility(vis);
 			}
-			else if (commandType.beginsWith("sp")) {
-				int points;
-				points = args.getIntToken();
-
-				ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
-
-				ghost->addSkillPoints(points);
-			}
 
 		} catch (Exception& e) {
 			creature->sendSystemMessage("Syntax: /editStats [buff/skill/vis] [ham/all/skillMod] amount");
