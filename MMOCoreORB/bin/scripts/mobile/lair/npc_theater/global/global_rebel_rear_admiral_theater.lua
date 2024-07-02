@@ -3,9 +3,9 @@ global_rebel_rear_admiral_theater = Lair:new {
 		{"fbase_rebel_elite_heavy_trooper_extreme",2},
 		{"fbase_rebel_guard_captain_extreme",2},
 		{"fbase_rebel_heavy_trooper_extreme",2},
-		{"fbase_rebel_rifleman_extreme",2},
+		{"fbase_rebel_rifleman_extreme",2}
 	},
-	bossMobiles = {{"rebel_rear_admiral", 1}}
+	bossMobiles = {{"rebel_rear_admiral", 1}},
 	spawnLimit = 15,
 	buildingsVeryEasy = {"object/building/poi/anywhere_rebel_camp_small_1.iff","object/building/poi/anywhere_rebel_camp_small_2.iff","object/building/poi/anywhere_rebel_camp_small_3.iff"},
 	buildingsEasy = {"object/building/poi/anywhere_rebel_camp_small_1.iff","object/building/poi/anywhere_rebel_camp_small_2.iff","object/building/poi/anywhere_rebel_camp_small_3.iff"},

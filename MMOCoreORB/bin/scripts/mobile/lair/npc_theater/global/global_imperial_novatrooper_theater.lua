@@ -1,4 +1,4 @@
-global_imperial_novatrooper_theatre = Lair:new {
+global_imperial_novatrooper_theater = Lair:new {
 	mobiles = {
 		{"fbase_elite_dark_trooper_extreme",2},
 		{"fbase_elite_sand_trooper_extreme",2},
@@ -18,4 +18,4 @@ global_imperial_novatrooper_theatre = Lair:new {
 	faction = "imperial"
 }
 
-addLairTemplate("global_imperial_novatrooper_theatre", global_imperial_novatrooper_theatre)
+addLairTemplate("global_imperial_novatrooper_theater", global_imperial_novatrooper_theater)
