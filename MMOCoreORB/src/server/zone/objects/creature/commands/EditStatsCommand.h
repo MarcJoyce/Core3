@@ -83,8 +83,10 @@ public:
 
 				int amount;
 				amount = args.getIntToken();
+				int currentSkillModValue = patient->getSkillMod(skillMod);
+				int skillModDelta = amount - currentSkillModValue;
 
-				patient->addSkillMod(SkillModManager::BUFF, skillMod, amount);
+				patient->addSkillMod(SkillModManager::BUFF, skillMod, skillModDelta, true);
 				} else if (state.beginsWith("perm")) {
 					String skillMod;
 					args.getStringToken(skillMod);
@@ -92,7 +94,10 @@ public:
 					int amount;
 					amount = args.getIntToken();
 
-					patient->addSkillMod(SkillModManager::SKILLBOX, skillMod, amount);
+					int currentSkillModValue = patient->getSkillMod(skillMod);
+					int skillModDelta = amount - currentSkillModValue;
+
+					patient->addSkillMod(SkillModManager::SKILLBOX, skillMod, skillModDelta, true);
 				}
 			}
 			else if (commandType.beginsWith("vis")) {

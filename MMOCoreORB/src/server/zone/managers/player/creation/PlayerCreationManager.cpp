@@ -1055,6 +1055,10 @@ void PlayerCreationManager::addRacialMods(CreatureObject* creature,
 		}
 	}
 
+	creature->addSkillMod(SkillModManager::SKILLBOX, "manage_vendor", 1);
+	creature->addSkillMod(SkillModManager::SKILLBOX, "hiring", 10);
+	creature->addSkillMod(SkillModManager::SKILLBOX, "vendor_item_limit", 250);
+
 	// Get inventory.
 	if (!equipmentOnly) {
 		SceneObject* inventory = creature->getSlottedObject("inventory");
